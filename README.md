@@ -1,5 +1,6 @@
 # School Management API
-
+live at 
+school-managementbackendprojectinternshala-production.up.railway.app
 A production-ready RESTful API built with Node.js, Express.js, and MySQL for managing school records and calculating distances.
 
 ## 🚀 Tech Stack
