@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-4a5b-bc6d-7e8f9a0b1c2d",
+		"name": "School Management API",
+		"description": "API collection for managing schools and calculating distances.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"status": "OK",
+					"code": 200,
+					"header": [],
+					"body": "{\n  \"message\": \"School Management API Running\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add School",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"ABC School\",\n  \"address\": \"Kolkata\",\n  \"latitude\": 22.5726,\n  \"longitude\": 88.3639\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/addSchool",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"addSchool"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"status": "Created",
+					"code": 201,
+					"header": [],
+					"body": "{\n  \"success\": true,\n  \"message\": \"School added successfully\",\n  \"data\": {\n      \"id\": 1\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "List Schools",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/listSchools?latitude=22.57&longitude=88.36",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"listSchools"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "22.57"
+						},
+						{
+							"key": "longitude",
+							"value": "88.36"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Response",
+					"status": "OK",
+					"code": 200,
+					"header": [],
+					"body": "{\n  \"success\": true,\n  \"count\": 1,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"ABC School\",\n      \"address\": \"Kolkata\",\n      \"latitude\": 22.5726,\n      \"longitude\": 88.3639,\n      \"distance_km\": 0.4\n    }\n  ]\n}"
+				}
+			]
+		}
+	]
+}
